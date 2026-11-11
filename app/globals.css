@@ -1,0 +1,352 @@
+
+@import "tailwindcss";
+
+/* THE SOCIAL BLOOM — SOFT LUXURY BRAND */
+
+:root {
+  --background: #F6F0E7;
+  --foreground: #594238;
+
+  --blush: #F4E3E5;
+  --champagne: #E8D6B9;
+  --warm-beige: #F6F0E7;
+  --mocha: #795548;
+  --dusty-rose: #B98591;
+  --ivory: #FFFDFC;
+  --soft-brown: #9B8177;
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), sans-serif;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.88;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--blush);
+  color: var(--mocha);
+}
+
+/* THE SOCIAL BLOOM — REGISTRATION REQUESTS */
+
+.requests-page {
+  min-height: 100vh;
+  padding: 55px 7%;
+  background: #F6F0E7;
+  color: #594238;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+.requests-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.requests-heading .eyebrow {
+  color: #B98591;
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.requests-heading h1 {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 500;
+  color: #795548;
+  margin: 12px 0;
+}
+
+.requests-heading > p:last-child {
+  color: #9B8177;
+  font-size: 14px;
+}
+
+.request-message {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: #F4E3E5;
+  color: #795548;
+  text-align: center;
+}
+
+.requests-list {
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.request-card {
+  background: #FFFDFC;
+  padding: 30px;
+  border: 1px solid #E8D6B9;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(89, 66, 56, 0.06);
+}
+
+.request-status {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 30px;
+  background: #F4E3E5;
+  color: #9B6478;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.request-card h2 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #795548;
+  margin: 15px 0;
+}
+
+.request-card > p:not(.request-status) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #795F54;
+  overflow-wrap: anywhere;
+}
+
+.request-card strong {
+  color: #594238;
+}
+
+.request-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.request-actions button {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.request-actions button:first-child {
+  background: #795548;
+  color: white;
+  border: 1px solid #795548;
+}
+
+.request-actions button:first-child:hover {
+  background: #594238;
+}
+
+.request-actions button:last-child {
+  background: transparent;
+  color: #9B6478;
+  border: 1px solid #B98591;
+}
+
+.request-actions button:last-child:hover {
+  background: #F4E3E5;
+}
+
+@media (max-width: 600px) {
+  .requests-page {
+    padding: 35px 18px;
+  }
+
+  .request-card {
+    padding: 22px;
+  }
+
+  .request-actions button {
+    flex: 1;
+  }
+}
+
+/* REQUEST SUMMARY CARDS */
+
+.request-summary {
+  max-width: 850px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.summary-card {
+  padding: 22px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  border: 1px solid #E8D6B9;
+  background: #FFFDFC;
+}
+
+.summary-card span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #795548;
+}
+
+.summary-card strong {
+  font-family: var(--font-cormorant), serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.pending-summary {
+  background: #F5EBD9;
+}
+
+.pending-summary strong {
+  color: #9B7444;
+}
+
+.approved-summary {
+  background: #E8F0E6;
+}
+
+.approved-summary strong {
+  color: #557653;
+}
+
+.declined-summary {
+  background: #F4E3E5;
+}
+
+.declined-summary strong {
+  color: #A66D7D;
+}
+
+@media (max-width: 600px) {
+  .request-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* REFRESH REQUESTS BUTTON */
+
+.refresh-container {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.refresh-button {
+  padding: 12px 22px;
+  border: 1px solid #B98591;
+  border-radius: 30px;
+  background: #FFFDFC;
+  color: #795548;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: #F4E3E5;
+  transform: translateY(-2px);
+}
+
+.refresh-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .refresh-container {
+    justify-content: center;
+  }
+
+  .refresh-button {
+    width: 100%;
+  }
+}
+
+/* REGISTRATION FILTER BUTTONS */
+
+.request-filters {
+  max-width: 850px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.request-filters button {
+  padding: 11px 22px;
+  border: 1px solid #D9C2B5;
+  border-radius: 30px;
+  background: #FFFDFC;
+  color: #795548;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.request-filters button:hover {
+  background: #F4E3E5;
+  border-color: #B98591;
+}
+
+.request-filters button.active-filter {
+  background: #795548;
+  color: #FFFDFC;
+  border-color: #795548;
+  box-shadow: 0 4px 12px rgba(89, 66, 56, 0.15);
+}
+
+@media (max-width: 600px) {
+  .request-filters {
+    gap: 8px;
+  }
+
+  .request-filters button {
+    padding: 10px 16px;
+  }
+}
