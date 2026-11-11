@@ -43,9 +43,9 @@ export default function LoginPage() {
     setLoading(true);
     setMessage("");
 
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/update-password`,
-    });
+const { error } = await supabase.auth.resetPasswordForEmail(email, {
+  redirectTo: "https://the-social-bloom.vercel.app/update-password",
+});
 
     if (error) {
       setMessage(error.message);
