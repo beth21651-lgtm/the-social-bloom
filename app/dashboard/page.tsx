@@ -113,22 +113,23 @@ export default function Dashboard() {
           <div
             key={title}
             onClick={() => {
-  if (title === "Manage Events") {
-    router.push("/dashboard/events");
-  } else if (title === "Manage Requests") {
-    router.push("/dashboard/requests");
-  } else if (title === "Community") {
-    router.push("/dashboard/community");
-  }
-}}
+              if (title === "Manage Events") {
+                router.push("/dashboard/events");
+              } else if (title === "Manage Requests") {
+                router.push("/dashboard/requests");
+              } else if (title === "Community") {
+                router.push("/dashboard/community");
+              } else if (title === "Founders") {
+                router.push("/dashboard/founders");
+              }
+            }}
             style={{
               background: "white",
               padding: "25px",
               borderRadius: "15px",
-              cursor:
-  ["Manage Events", "Manage Requests", "Community"].includes(title)
-    ? "pointer"
-    : "default"
+              cursor: ["Manage Events", "Manage Requests", "Community", "Founders"].includes(title)
+                ? "pointer"
+                : "default"
             }}
           >
             <h2>{icon} {title}</h2>
