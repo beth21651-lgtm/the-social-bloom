@@ -47,19 +47,19 @@ export default function FoundersPage() {
   const founders = [
     {
       name: "Ishama",
-      image: "/founders/ishama.jpg",
+      image: "/founders/ishama.JPG",
       role: "Co-Founder",
       description: "Bringing the vision of The Social Bloom to life."
     },
     {
       name: "Vanissa",
-      image: "/founders/vanissa.jpg",
+      image: "/founders/vanissa.JPG",
       role: "Co-Founder",
       description: "Building meaningful friendships and lasting connections."
     },
     {
       name: "Techelle",
-      image: "/founders/techelle.jpg",
+      image: "/founders/techelle.JPG",
       role: "Co-Founder",
       description: "Creating beautiful experiences and memories together."
     }
