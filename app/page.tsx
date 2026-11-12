@@ -79,6 +79,7 @@ loadPublicEvents();
           <a href="#home">Home</a>
           <a href="#about">Our Story</a>
           <a href="#events">Experiences</a>
+          <a href="/memories">Our Memories</a>
           <a href="#community">Community</a>
         </div>
 

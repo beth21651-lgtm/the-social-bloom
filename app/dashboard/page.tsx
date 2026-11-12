@@ -50,13 +50,15 @@ export default function Dashboard() {
     );
   }
 
-  const dashboardCards = [
-    ["📅", "Manage Events", "Plan and organise upcoming activities."],
-    ["💌", "Manage Requests", "Review, approve and decline registrations."],
-    ["🌷", "Community", "Keep track of our growing community."],
-    ["📢", "Announcements", "Share updates with our members."],
-    ["👑", "Founders", "Your private founders' space."]
-  ];
+ const dashboardCards = [
+  ["📅", "Manage Events", "Plan and organise upcoming activities."],
+  ["💌", "Manage Requests", "Review, approve and decline registrations."],
+  ["🌷", "Community", "Keep track of our growing community."],
+  ["📢", "Announcements", "Share updates with our members."],
+  ["👑", "Founders", "Your private founders' space."],
+  ["📸", "Our Memories", "Upload, approve and cherish our event photographs."]
+];
+
 
   return (
     <main style={{
@@ -113,21 +115,23 @@ export default function Dashboard() {
           <div
             key={title}
             onClick={() => {
-              if (title === "Manage Events") {
-                router.push("/dashboard/events");
-              } else if (title === "Manage Requests") {
-                router.push("/dashboard/requests");
-              } else if (title === "Community") {
-                router.push("/dashboard/community");
-              } else if (title === "Founders") {
-                router.push("/dashboard/founders");
-              }
-            }}
+  if (title === "Manage Events") {
+    router.push("/dashboard/events");
+  } else if (title === "Manage Requests") {
+    router.push("/dashboard/requests");
+  } else if (title === "Community") {
+    router.push("/dashboard/community");
+  } else if (title === "Founders") {
+    router.push("/dashboard/founders");
+  } else if (title === "Our Memories") {
+    router.push("/dashboard/memories");
+  }
+}}
             style={{
               background: "white",
               padding: "25px",
               borderRadius: "15px",
-              cursor: ["Manage Events", "Manage Requests", "Community", "Founders"].includes(title)
+             cursor: ["Manage Events", "Manage Requests", "Community", "Founders", "Our Memories"].includes(title)
                 ? "pointer"
                 : "default"
             }}
