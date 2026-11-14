@@ -9,7 +9,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState("");
-
+const [greeting, setGreeting] = useState("Welcome back, Founder! 💗");
   useEffect(() => {
     async function checkFounder() {
       const { data: { user } } = await supabase.auth.getUser();
@@ -29,8 +29,17 @@ export default function Dashboard() {
         router.replace("/");
         return;
       }
+const founderGreetings: Record<string, string> = {
+  "beth21651@gmail.com": "Continue Blooming, Ishama! 💗",
+  "brownvanissa1@gmail.com": "Hello again, Vanissa! 💗",
+  "techellekellyman@gmail.com": "So lovely to have you back, Techelle! 💗",
+};
 
-      setEmail(user.email ?? "");
+setEmail(user.email ?? "");
+setGreeting(
+  founderGreetings[(user.email ?? "").toLowerCase()] ??
+    "Welcome back, Founder! 💗"
+);
       setLoading(false);
     }
 
@@ -97,7 +106,7 @@ export default function Dashboard() {
         borderRadius: "18px",
         marginTop: "35px"
       }}>
-        <h2>Welcome back, Founder! 💗</h2>
+        <h2>{greeting}</h2>
         <p>You are logged in as {email}.</p>
         <p>
           This is your private space to help manage
