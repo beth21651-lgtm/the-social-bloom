@@ -23,6 +23,11 @@ export default function CommunityPage() {
   const [phone, setPhone] = useState("");
   const [parish, setParish] = useState("");
 
+  // Community filters
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedParish, setSelectedParish] = useState("all");
+  const [selectedStatus, setSelectedStatus] = useState("all");
+
   async function loadMembers() {
     const { data, error } = await supabase
       .from("community_members")
@@ -83,6 +88,32 @@ export default function CommunityPage() {
     setMessage("Membership status updated successfully.");
     await loadMembers();
   }
+
+  // Get unique parishes for the filter
+  const parishes = Array.from(
+    new Set(
+      members
+        .map((member) => member.parish?.trim())
+        .filter((value): value is string => Boolean(value))
+    )
+  ).sort((a, b) => a.localeCompare(b));
+
+  // Filter community members
+  const filteredMembers = members.filter((member) => {
+    const matchesName = member.full_name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase().trim());
+
+    const matchesParish =
+      selectedParish === "all" ||
+      member.parish?.trim() === selectedParish;
+
+    const matchesStatus =
+      selectedStatus === "all" ||
+      member.status === selectedStatus;
+
+    return matchesName && matchesParish && matchesStatus;
+  });
 
   useEffect(() => {
     async function checkFounder() {
@@ -161,12 +192,67 @@ export default function CommunityPage() {
       <section className="requests-list">
         <h2>Community Members</h2>
 
+        {!loading && members.length > 0 && (
+          <section className="request-card">
+            <h2>Find a Community Member 🌷</h2>
+
+            <div className="community-filters">
+              <input
+                type="search"
+                placeholder="Search by member name..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+
+              <select
+                value={selectedParish}
+                onChange={(e) => setSelectedParish(e.target.value)}
+              >
+                <option value="all">All Parishes</option>
+                {parishes.map((parishName) => (
+                  <option key={parishName} value={parishName}>
+                    {parishName}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={selectedStatus}
+                onChange={(e) => setSelectedStatus(e.target.value)}
+              >
+                <option value="all">All Membership Statuses</option>
+                <option value="invited">Invited</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchTerm("");
+                  setSelectedParish("all");
+                  setSelectedStatus("all");
+                }}
+              >
+                CLEAR FILTERS
+              </button>
+            </div>
+
+            <p>
+              Showing <strong>{filteredMembers.length}</strong> of{" "}
+              <strong>{members.length}</strong> community members.
+            </p>
+          </section>
+        )}
+
         {loading ? (
           <p>Loading community members...</p>
         ) : members.length === 0 ? (
           <p>No community members have been added yet.</p>
+        ) : filteredMembers.length === 0 ? (
+          <p>No members match your search or selected filters.</p>
         ) : (
-          members.map((member) => (
+          filteredMembers.map((member) => (
             <article className="request-card" key={member.id}>
               <h2>{member.full_name}</h2>
 
