@@ -76,12 +76,19 @@ loadPublicEvents();
         </a>
 
         <div className="navlinks">
-          <a href="#home">Home</a>
-          <a href="#about">Our Story</a>
-          <a href="#events">Experiences</a>
-          <a href="/memories">Our Memories</a>
-          <a href="#community">Community</a>
-        </div>
+  <a href="#home">Home</a>
+  <a href="#about">Our Story</a>
+  <a href="#events">Experiences</a>
+  <a href="/memories">Our Memories</a>
+  <a href="#community">Community</a>
+  <a
+    href="https://www.instagram.com/thesocialbloomhq/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Instagram
+  </a>
+</div>
 
         <a className="login" href="/login">Member Login</a>
       </nav>
@@ -346,9 +353,14 @@ loadPublicEvents();
 
         <div className="footer-divider"></div>
 
-        <p className="footer-values">
-          Friendship &nbsp; · &nbsp; Connection &nbsp; · &nbsp; Community
-        </p>
+        <a
+  className="footer-instagram"
+  href="https://www.instagram.com/thesocialbloomhq/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Instagram · @thesocialbloomhq
+</a>
 
         <p className="copyright">© 2026 The Social Bloom. All rights reserved.</p>
       </footer>
@@ -919,11 +931,18 @@ loadPublicEvents();
           margin: 30px auto;
         }
 
-        .footer-values {
-          font-size: 10px;
-          letter-spacing: 2px;
-          color: #E8D6B9;
-        }
+        .footer-instagram {
+  display: inline-block;
+  margin-top: 22px;
+  color: #E8D6B9;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer-instagram:hover {
+  color: #F4E3E5;
+}
 
         .copyright {
           margin-top: 45px;
